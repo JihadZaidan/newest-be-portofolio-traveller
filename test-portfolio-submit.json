@@ -1,0 +1,9 @@
+{
+  "title": "Test Portfolio Submit",
+  "description": "Testing portfolio submission",
+  "category": "product-description",
+  "images": ["/test-image-1.jpg", "/test-image-2.jpg"],
+  "tags": ["test", "submit"],
+  "featured": true,
+  "published": true
+}

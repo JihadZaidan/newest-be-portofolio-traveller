@@ -1,0 +1,9 @@
+{
+  "title": "Multiple Images Test",
+  "description": "Testing multiple images functionality",
+  "category": "product-description",
+  "images": ["/Williams-Sonoma-Lunar.png", "/Dr-Bronners-Pure.png"],
+  "tags": ["test", "multiple"],
+  "featured": true,
+  "isActive": true
+}
