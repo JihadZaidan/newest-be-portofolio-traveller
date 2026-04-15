@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog Data Extractor</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        .container {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        .button {
+            background-color: #007bff;
+            color: white;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            margin: 10px;
+        }
+        .button:hover {
+            background-color: #0056b3;
+        }
+        .button.success {
+            background-color: #28a745;
+        }
+        .button.success:hover {
+            background-color: #1e7e34;
+        }
+        .result {
+            margin-top: 20px;
+            padding: 15px;
+            border-radius: 5px;
+            display: none;
+        }
+        .success {
+            background-color: #d4edda;
+            border: 1px solid #c3e6cb;
+            color: #155724;
+        }
+        .error {
+            background-color: #f8d7da;
+            border: 1px solid #f5c6cb;
+            color: #721c24;
+        }
+        .data-preview {
+            background-color: #f8f9fa;
+            border: 1px solid #dee2e6;
+            padding: 15px;
+            border-radius: 5px;
+            margin-top: 15px;
+            max-height: 300px;
+            overflow-y: auto;
+            font-family: monospace;
+            font-size: 12px;
+        }
+        .instructions {
+            background-color: #e9ecef;
+            padding: 15px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🚀 Blog Data Extractor</h1>
+        
+        <div class="instructions">
+            <h3>📋 Instructions:</h3>
+            <ol>
+                <li>Buka <a href="http://localhost:5173/admin/blog" target="_blank">http://localhost:5173/admin/blog</a> di tab baru</li>
+                <li>Kembali ke tab ini dan klik "Extract Data"</li>
+                <li>File blog-data.json akan otomatis di-download</li>
+                <li>Letakkan file di folder: <code>c:\Users\ACER\workandshop\</code></li>
+                <li>Jalankan: <code>npm run migrate:blog:file</code></li>
+            </ol>
+        </div>
+
+        <button class="button" onclick="extractData()">📤 Extract Data from localStorage</button>
+        <button class="button success" onclick="extractAndDownload()">⚡ Quick Extract & Download</button>
+        
+        <div id="result" class="result"></div>
+        
+        <div id="dataPreview" class="data-preview" style="display: none;"></div>
+    </div>
+
+    <script>
+        function extractData() {
+            const resultDiv = document.getElementById('result');
+            const previewDiv = document.getElementById('dataPreview');
+            
+            try {
+                // Try to access localStorage from the admin blog page
+                const blogData = localStorage.getItem('admin_blog_articles');
+                
+                if (blogData) {
+                    const parsedData = JSON.parse(blogData);
+                    
+                    resultDiv.className = 'result success';
+                    resultDiv.innerHTML = `
+                        <h3>✅ Data Found!</h3>
+                        <p><strong>Jumlah Artikel:</strong> ${parsedData.length}</p>
+                        <p><strong>Data Size:</strong> ${blogData.length} characters</p>
+                        <p>Klik "Quick Extract & Download" untuk download file JSON.</p>
+                    `;
+                    
+                    // Show preview
+                    previewDiv.style.display = 'block';
+                    previewDiv.innerHTML = '<strong>Data Preview:</strong><br>' + 
+                        JSON.stringify(parsedData.slice(0, 2), null, 2) + 
+                        (parsedData.length > 2 ? '\n\n... and ' + (parsedData.length - 2) + ' more items' : '');
+                    
+                } else {
+                    resultDiv.className = 'result error';
+                    resultDiv.innerHTML = `
+                        <h3>❌ No Data Found</h3>
+                        <p>Tidak ada data blog di localStorage.</p>
+                        <p>Pastikan Anda sudah:</p>
+                        <ul>
+                            <li>Membuka <a href="http://localhost:5173/admin/blog" target="_blank">http://localhost:5173/admin/blog</a></li>
+                            <li>Menambahkan artikel di halaman admin blog</li>
+                        </ul>
+                    `;
+                    previewDiv.style.display = 'none';
+                }
+            } catch (error) {
+                resultDiv.className = 'result error';
+                resultDiv.innerHTML = `
+                    <h3>❌ Error</h3>
+                    <p>${error.message}</p>
+                `;
+                previewDiv.style.display = 'none';
+            }
+        }
+        
+        function extractAndDownload() {
+            try {
+                const blogData = localStorage.getItem('admin_blog_articles');
+                
+                if (!blogData) {
+                    alert('❌ Tidak ada data di localStorage! Buka http://localhost:5173/admin/blog terlebih dahulu.');
+                    return;
+                }
+                
+                const parsedData = JSON.parse(blogData);
+                
+                // Create JSON string
+                const dataStr = JSON.stringify(parsedData, null, 2);
+                
+                // Create download link
+                const dataUri = 'data:application/json;charset=utf-8,'+ encodeURIComponent(dataStr);
+                const linkElement = document.createElement('a');
+                linkElement.setAttribute('href', dataUri);
+                linkElement.setAttribute('download', 'blog-data.json');
+                linkElement.style.display = 'none';
+                
+                document.body.appendChild(linkElement);
+                linkElement.click();
+                document.body.removeChild(linkElement);
+                
+                // Show success message
+                const resultDiv = document.getElementById('result');
+                resultDiv.className = 'result success';
+                resultDiv.innerHTML = `
+                    <h3>✅ File Downloaded!</h3>
+                    <p><strong>File:</strong> blog-data.json</p>
+                    <p><strong>Jumlah Artikel:</strong> ${parsedData.length}</p>
+                    <p><strong>Next Step:</strong> Letakkan file di <code>c:\Users\ACER\workandshop\</code> dan jalankan <code>npm run migrate:blog:file</code></p>
+                `;
+                
+                console.log('✅ Blog data extracted successfully!');
+                console.log('Articles found:', parsedData.length);
+                
+            } catch (error) {
+                alert('❌ Error extracting data: ' + error.message);
+                console.error('Extraction error:', error);
+            }
+        }
+        
+        // Auto-extract on page load
+        window.addEventListener('load', function() {
+            setTimeout(extractData, 1000);
+        });
+    </script>
+</body>
+</html>

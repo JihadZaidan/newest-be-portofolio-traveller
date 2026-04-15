@@ -1,0 +1,82 @@
+[
+  {
+    "id": 1,
+    "cover": "/placeholder-image.png",
+    "title": "Tips for Preparing a Trip to Bali",
+    "category": "Travel Tips",
+    "status": "publish",
+    "content": "\n                <h2>Planning Your Bali Adventure</h2>\n                <p>Bali is one of the most popular destinations in Indonesia, offering a perfect blend of beautiful beaches, rich culture, and amazing food. Here are some essential tips to make your trip unforgettable.</p>\n                \n                <h3>Best Time to Visit</h3>\n                <p>The dry season from April to October is ideal for beach activities and outdoor exploration. However, the wet season has its own charm with lush green landscapes.</p>\n                \n                <h3>Must-Visit Places</h3>\n                <ul>\n                    <li><strong>Ubud:</strong> Cultural heart of Bali with rice terraces and temples</li>\n                    <li><strong>Seminyak:</strong> Perfect for luxury resorts and fine dining</li>\n                    <li><strong>Canggu:</strong> Great for surfers and digital nomads</li>\n                    <li><strong>Uluwatu:</strong> Stunning cliffs and beautiful temples</li>\n                </ul>\n            "
+  },
+  {
+    "id": 2,
+    "cover": "/blog-image.jpeg",
+    "title": "Hidden Gems of Yogyakarta",
+    "category": "Travel Story",
+    "status": "publish",
+    "content": "\n                <h2>Discovering Yogyakarta's Treasures</h2>\n                <p>Yogyakarta, often called Jogja, is a cultural hub that offers more than just the famous Borobudur and Prambanan temples. Let me share some hidden gems that will make your visit truly special.</p>\n                \n                <h3>Off-the-Beaten-Path Temples</h3>\n                <p>While Borobudur gets all the attention, temples like Plaosan and Kalasan offer equally stunning architecture without the crowds.</p>\n            "
+  },
+  {
+    "id": 3,
+    "cover": "/blog-image2.jpeg",
+    "title": "Digital Nomad Guide to Jakarta",
+    "category": "Travel Tips",
+    "status": "draft",
+    "content": "\n                <h2>Working Remotely in Indonesia's Capital</h2>\n                <p>Jakarta might not be the first city that comes to mind for digital nomads, but this bustling metropolis has a lot to offer for remote workers.</p>\n                \n                <h3>Coworking Spaces</h3>\n                <p>Jakarta has numerous coworking spaces catering to different needs.</p>\n            "
+  },
+  {
+    "id": 4,
+    "cover": "/placeholder-image.png",
+    "title": "Exploring the Beauty of Raja Ampat",
+    "category": "Travel Story",
+    "status": "publish",
+    "content": "\n                <h2>Raja Ampat: Paradise on Earth</h2>\n                <p>Raja Ampat is an archipelago in West Papua that's famous for its stunning marine biodiversity and crystal-clear waters.</p>\n                <p>This hidden gem is a paradise for divers and nature lovers alike.</p>\n            "
+  },
+  {
+    "id": 5,
+    "cover": "/blog-image3.jpg",
+    "title": "Street Food Guide to Bandung",
+    "category": "Food & Travel",
+    "status": "publish",
+    "content": "\n                <h2>Culinary Adventures in Bandung</h2>\n                <p>Bandung is not just about factory outlets and cool weather - it's a paradise for food lovers!</p>\n                <p>From traditional Sundanese cuisine to modern cafes, Bandung offers something for every palate.</p>\n            "
+  },
+  {
+    "id": 6,
+    "cover": "/placeholder-image.png",
+    "title": "Hiking Mount Bromo: A Complete Guide",
+    "category": "Adventure",
+    "status": "draft",
+    "content": "\n                <h2>Conquering Mount Bromo</h2>\n                <p>Mount Bromo is one of Indonesia's most iconic volcanoes, offering breathtaking sunrise views and otherworldly landscapes.</p>\n                <p>The journey to the summit is challenging but incredibly rewarding.</p>\n            "
+  },
+  {
+    "id": 7,
+    "cover": "/blog-image.jpeg",
+    "title": "Cultural Heritage of Solo City",
+    "category": "Culture",
+    "status": "publish",
+    "content": "\n                <h2>Solo: The Heart of Javanese Culture</h2>\n                <p>Solo (Surakarta) is often overshadowed by Yogyakarta, but it offers an authentic Javanese cultural experience.</p>\n                <p>From traditional batik to classical Javanese music, Solo preserves the essence of Javanese heritage.</p>\n            "
+  },
+  {
+    "id": 8,
+    "cover": "/blog-image2.jpeg",
+    "title": "Diving in Komodo National Park",
+    "category": "Adventure",
+    "status": "publish",
+    "content": "\n                <h2>Underwater Paradise: Komodo National Park</h2>\n                <p>Komodo National Park is not just about the famous dragons - it's a world-class diving destination.</p>\n                <p>The park's waters are home to over 1,000 species of fish and 260 species of coral.</p>\n            "
+  },
+  {
+    "id": 9,
+    "cover": "/placeholder-image.png",
+    "title": "Best Coffee Shops in Ubud",
+    "category": "Food & Travel",
+    "status": "publish",
+    "content": "\n                <h2>Coffee Culture in Ubud</h2>\n                <p>Ubud has emerged as a coffee lover's paradise with numerous specialty cafes serving locally grown Balinese coffee.</p>\n                <p>From traditional Kopi Tubruk to modern espresso drinks, Ubud's coffee scene is thriving.</p>\n            "
+  },
+  {
+    "id": 10,
+    "cover": "/blog-image3.jpg",
+    "title": "Traditional Markets of Jakarta",
+    "category": "Culture",
+    "status": "draft",
+    "content": "\n                <h2>Exploring Jakarta's Traditional Markets</h2>\n                <p>Jakarta's traditional markets offer a glimpse into the city's vibrant culture and daily life.</p>\n                <p>From Tanah Abang to Pasar Senen, each market has its own unique character and offerings.</p>\n            "
+  }
+]

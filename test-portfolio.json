@@ -1,0 +1,9 @@
+{
+  "title": "Sample Portfolio 1",
+  "description": "This is a sample portfolio for testing",
+  "category": "product-description",
+  "images": ["/uploads/sample1.jpg", "/uploads/sample2.jpg"],
+  "tags": ["design", "branding"],
+  "featured": true,
+  "published": true
+}

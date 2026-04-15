@@ -1,0 +1,36 @@
+-- Jalankan SQL ini di phpMyAdmin: http://localhost/phpmyadmin/index.php?route=/sql&pos=0&db=travello_db
+
+CREATE TABLE IF NOT EXISTS experiences (
+    id VARCHAR(24) PRIMARY KEY,
+    title VARCHAR(255) NOT NULL,
+    company VARCHAR(255) NOT NULL,
+    position VARCHAR(255) NOT NULL,
+    description TEXT NOT NULL,
+    imageUrl VARCHAR(500),
+    startDate DATE NOT NULL,
+    endDate DATE,
+    currentJob BOOLEAN DEFAULT FALSE,
+    location VARCHAR(255) NOT NULL,
+    type ENUM('full-time', 'part-time', 'freelance', 'internship', 'remote') DEFAULT 'full-time',
+    department VARCHAR(255) DEFAULT '',
+    achievements JSON,
+    technologies JSON,
+    responsibilities JSON,
+    skills JSON,
+    featured BOOLEAN DEFAULT FALSE,
+    isActive BOOLEAN DEFAULT TRUE,
+    `order` INT DEFAULT 0,
+    tags JSON,
+    createdAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updatedAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    
+    INDEX idx_title (title),
+    INDEX idx_company (company),
+    INDEX idx_active (isActive),
+    INDEX idx_featured (featured),
+    INDEX idx_startDate (startDate),
+    INDEX idx_order (`order`),
+    INDEX idx_currentJob (currentJob),
+    INDEX idx_type (type),
+    FULLTEXT idx_search (title, description, company, position)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
